@@ -1,0 +1,40 @@
+{% extends 'partials/base2.html' %}
+{% load static %}
+<title>
+    {% block titulo %}Cadastro Projeto - UFAC{% endblock %}
+</title>
+{% load crispy_forms_tags %}
+{% block conteudo %}
+    {% if object.pk %}
+        <h1 class="h3 my-3 text-dark">Editar Projeto</h1>
+    {% else %}
+        <h1 class="h3 my-3 text-dark">Cadastrar Projeto</h1>
+    {% endif %}
+    <form method="POST" action="">
+        <div id="" class="row bg-white p-3 m-auto rounded">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <div class="text-right col-md-12">
+                {% if object.pk %}
+                    <button type="submit" class=" save btn btn-success">
+                        <i class="fas fa-save"></i>
+                        Salvar
+                    </button>
+                    <a class="btn btn-secondary"  href="">
+                        <i class="fas fa-arrow-left"></i>
+                        Voltar
+                    </a>
+                {% else %}
+                    <button type="submit" class="save btn btn-success">
+                        <i class="fas fa-save"></i>
+                        Salvar
+                    </button>
+                    <a class="btn btn-secondary"  href="{% url 'projetos:listagem' %}">
+                        <i class="fas fa-arrow-left"></i>
+                        Voltar
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </form>
+{% endblock %}

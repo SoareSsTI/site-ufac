@@ -1,0 +1,86 @@
+{% load static %}
+<!-- MENU LATERAL-->
+<ul class="navbar-nav sidebar bg-primary sidebar-dark accordion" id="accordionSidebar" >
+     <!-- TOPO MENU LATERAL-->
+    <a href="/" class="sidebar-brand d-flex align-items-center justify-content-center">
+        <div class="sidebar-brand-icon ">
+            <img src="{% static 'img/logo_ufac.png' %}" alt="" width="50" height="50">
+        </div>
+        <div class="sidebar-brand-text mx-3"> 
+            <h5 class="mt-2">
+                <strong>UFAC</strong>
+                <br>
+                <small>Extensões</small>
+            </h5>
+        </div>
+    </a>
+
+    <!-- DIVISOR --> 
+    <hr class="sidebar-divider my-0 py-1">
+
+    <!-- EDITAR OS DADOS-->
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-user-cog"></i>
+            <span>Perfil</span>
+        </a>
+    </li>
+    <hr class="sidebar-divider my-0 py-1">
+
+    <!-- DADOS DO SITE-->
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+
+    <!-- DIVISOR -->
+    <hr class="sidebar-divider ">
+
+    <!-- MODULOS -->
+    <div class="sidebar-heading">
+        Módulos
+    </div>
+
+    <!--OPÇÕES -->
+    <li class="nav-item">
+        <a class="nav-link " href="{% url 'usuario:alunos_listagem' %}">
+            <i class="fas fa-user-graduate"></i>
+            <span> Alunos </span>
+        </a>   
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link " href="{% url 'projetos:listagem' %}">
+            <i class="fas fa-book"></i>           
+            <span> Projetos </span>
+        </a>   
+    </li>
+   
+
+    <!-- DIVISOR -->
+    <hr class="sidebar-divider">
+
+    <!-- TÓPICOS -->
+    <div class="sidebar-heading">
+        Tópicos
+    </div>
+
+    <!--OPÇÕES -->
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'aulas:index' %}"> 
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span> Aulas</span>
+        </a>
+    </li>
+
+    <!-- DIVISOR -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- BOTÃO INFERIOR OCULTAR MENU LATERAL  -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+</ul>

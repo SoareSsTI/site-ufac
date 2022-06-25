@@ -1,0 +1,82 @@
+{% extends 'partials/base2.html' %}
+
+{% block titulo %}Projetos - UFAC{% endblock %}
+
+{% load static %}
+
+{% block conteudo %}
+
+    <div class="d-flex bd-highlight my-3">
+        <div class="align-middle bd-highlight">
+            <h3>Projetos</h3>
+        </div>
+        <div class="ml-auto align-middle bd-highlight">
+            <a class="btn btn-primary"  href="{% url 'projetos:cadastro' %}">
+                <i class="fas fa-plus"></i>
+                Novo Cadastro
+            </a>
+        </div>
+    </div>
+    <div class="bg-white p-4 m-auto rounded">
+        <table class="table table-sm table-hover table-bordered"
+               id="dataListagens"
+               style="width: 100%;
+                      min-width: 100%;">
+            <thead class="text-dark" style="background:#ebebeb;">
+                <tr>
+                    <th class="align-middle text-center">Projeto</th>
+                    <th class="align-middle text-center">Clientes</th>
+                    <th class="align-middle text-center">Descrição</th>
+                    <th class="align-middle text-center">Data Inicio</th>
+                    <th class="align-middle text-center">Link</th>
+                    <th class="align-middle text-center">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in object_list %}
+                    <tr>
+                        <td class="text-center align-middle">{{ item.projeto }}</td>
+                        <td class="text-center align-middle">{{ item.cliente }}</td>
+                        <td class="text-center align-middle">{{ item.descricao }}</td>
+                        <td class=" text-center align-middle">{{ item.dataIni}}</td>
+                        <td class="text-center align-middle">
+                            <a href="{{ item.ver }}"
+                               class="btn btn-primary"
+                               style=" padding-top: 0.7rem; padding-bottom: 0.7rem; "
+                               target="_blank">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </td>
+                        <td class="text-center align-middle" style="width:150px;">
+                            <div class="d-flex justify-content-around flex-nowrap">
+                                <div class="mx-1">
+                                    <a href="{% url 'projetos:dados' item.pk %}"
+                                       class="btn btn-secondary"
+                                       style=" padding-top: 0.7rem; padding-bottom: 0.7rem; ">
+                                        <i class="fas fa-list-ul"></i>
+                                    </a>
+                                </div>
+                                <div class="mx-auto">
+                                    <a href="{% url 'projetos:update' item.pk %}"
+                                       class="btn btn-warning"
+                                       style=" padding-top: 0.7rem; padding-bottom: 0.7rem; ">
+                                        <i class=" fas fa-edit"></i>
+                                    </a>
+                                </div>
+                                <div class="mx-1">
+                                    <button class="btn  btn-danger"
+                                            style="padding-top: 0.7rem; padding-bottom: 0.7rem; ">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                {% empty %}
+                    Nada foi registrado
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+{% endblock %}
