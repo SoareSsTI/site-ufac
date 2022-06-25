@@ -6,6 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+#Pastas migrations 
+projeto/apps/core/migrations
+projeto/apps/aulas/migrations
+projeto/apps/projetos/migrations
+projeto/apps/usuario/migrations
+
+
 # Distribution / packaging
 .Python
 build/
