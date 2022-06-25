@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'apps.usuario',
     'apps.projetos',
     'apps.aulas',
-    # 'crispy_forms',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
